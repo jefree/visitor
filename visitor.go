@@ -1,4 +1,4 @@
-package visitor
+package main
 
 import (
   "github.com/mitchellh/go-mruby"
@@ -57,7 +57,6 @@ func visitorClassCreate(m *mruby.Mrb, self *mruby.MrbValue) (mruby.Value, mruby.
 }
 
 func visitorVisit(m *mruby.Mrb, self *mruby.MrbValue) (mruby.Value, mruby.Value) {
-  var title string
   _id, err := self.Call("id")
 
   if err != nil {
@@ -72,8 +71,7 @@ func visitorVisit(m *mruby.Mrb, self *mruby.MrbValue) (mruby.Value, mruby.Value)
   url := args[0].String()
   (*webDriver).Get(url)
 
-
-  title, err = (*webDriver).Title()
+  title, err := (*webDriver).Title()
   if err != nil {
     log.Fatal(err)
   }

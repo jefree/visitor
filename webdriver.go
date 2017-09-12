@@ -1,4 +1,4 @@
-package visitor
+package main
 
 import (
   "sourcegraph.com/sourcegraph/go-selenium"
